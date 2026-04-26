@@ -10,13 +10,17 @@ export default function AudioPlayer() {
     if (audioRef.current) {
       audioRef.current.volume = 0.3;
       const playAudio = () => {
-        audioRef.current?.play().catch(() => {
-          // Playback failed, likely browser block. User interaction needed.
+        audioRef.current?.play().catch((err) => {
+          console.log("Audio play failed:", err);
         });
       };
       
       document.addEventListener('click', playAudio, { once: true });
-      return () => document.removeEventListener('click', playAudio);
+      document.addEventListener('touchstart', playAudio, { once: true });
+      return () => {
+        document.removeEventListener('click', playAudio);
+        document.removeEventListener('touchstart', playAudio);
+      };
     }
   }, []);
 
@@ -38,8 +42,9 @@ export default function AudioPlayer() {
       </button>
       <audio
         ref={audioRef}
-        src="/byronatoraustralia-happy-birthday-guitar-11795.mp3"
+        src="/bg-music.mp3"
         loop
+        playsInline
       />
     </div>
   );
