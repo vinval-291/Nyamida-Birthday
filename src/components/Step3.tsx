@@ -34,7 +34,7 @@ export default function Step3({ onNext }: Props) {
           </p>
           <p>
             Every memory we’ve shared feels like a precious moment I’d gladly relive a thousand times.
-            You have this quiet magic—one that turns even the most ordinary days into something truly unforgettable.
+            You have this quiet magic, one that turns even the most ordinary days into something truly unforgettable.
           </p>
           <p>
             I appreciate how unique you are, the way you make every moment feel special just by being in it. 
